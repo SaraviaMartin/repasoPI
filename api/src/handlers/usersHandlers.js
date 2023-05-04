@@ -1,3 +1,4 @@
+//query --> /?name=martin&apellido=saravia
 const getUserHandler = (req, res) => {
     const {name, apellido} = req.query;
 
@@ -19,4 +20,15 @@ const getUserIdHanlder = (req, res) => {
 // --> body 
 const postUserHandler = (req, res) => {
     const {name, email, phone} = req.body;
-}
+    res
+    .status(200)
+    .send(
+        `Creamos el usuario con nombre: ${name}, email: ${email} y telefono: ${phone}`
+    );
+};
+
+module.exports = {
+    getUserHandler,
+    getUserIdHanlder,
+    postUserHandler,
+};
